@@ -1,16 +1,16 @@
 """
 Hello, World DAG.
 
-The simplest possible DAG with exactly one step.
+The simplest possible DAG with exactly one task.
 
-This example illustrates the traditional Python Airflow syntax.
+Uses the traditional Python Airflow syntax.
 """
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 
 from datetime import datetime
 
-def generate_message(ti):
+def generate_message():
     """
     Generate a Hello, World Message, all lowercase
     """

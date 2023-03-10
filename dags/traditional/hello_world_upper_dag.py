@@ -1,8 +1,7 @@
 """
 Hello, World Upper Case DAG.
 
-This example illustrates the traditional Python Airflow syntax,
-and illustrates use of xcom communication.
+Uses the traditional Python Airflow syntax with xcom communication.
 """
 from airflow import DAG
 from airflow.operators.python import PythonOperator
