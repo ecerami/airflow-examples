@@ -21,7 +21,7 @@ mysql_task = MySqlOperator(
     task_id="insert_record",
     mysql_conn_id = "mysql",
     sql="insert into WEB_USER (FIRST_NAME, LAST_NAME, EMAIL) "
-        + "values ('Ethan', 'Cerami', 'cerami@gmail.com');",
+        + "values ('Ethan', 'Cerami', 'cerami@email.com');",
     dag=dag
 )
 
