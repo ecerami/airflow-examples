@@ -6,5 +6,6 @@ deploy_traditional:
 deploy_task_flow:
 	cp dags/task_flow/*.py $(AIRFLOW_HOME)/dags
 
-deploy_mysql:
+deploy_other:
 	cp dags/mysql/*.py $(AIRFLOW_HOME)/dags
+	cp dags/expand/*.py $(AIRFLOW_HOME)/dags
