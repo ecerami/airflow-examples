@@ -11,18 +11,16 @@ from datetime import datetime
 # Create the DAG
 dag = DAG(
     dag_id="mysql_0",
-    start_date=datetime(2023,1,1),
+    start_date=datetime(2023, 1, 1),
     schedule=None,
     catchup=False,
-    tags= ["tutorial"],
+    tags=["tutorial"],
 )
 
 mysql_task = MySqlOperator(
     task_id="add_user",
-    mysql_conn_id = "mysql",
+    mysql_conn_id="mysql",
     sql="insert into WEB_USER (FIRST_NAME, LAST_NAME, EMAIL) "
-        + "values ('Ethan', 'Cerami', 'cerami@email.com');",
-    dag=dag
+    + "values ('Ethan', 'Cerami', 'cerami@email.com');",
+    dag=dag,
 )
-
-

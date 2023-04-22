@@ -10,6 +10,7 @@ from airflow.operators.python import PythonOperator
 
 from datetime import datetime
 
+
 def generate_message():
     """
     Generate a Hello, World Message, all lowercase
@@ -18,17 +19,16 @@ def generate_message():
     msg = "hello, world!"
     print(f"Setting message to:  {msg}")
 
+
 # Create the DAG
 dag = DAG(
     dag_id="hello_world_dag",
-    start_date=datetime(2023,1,1),
+    start_date=datetime(2023, 1, 1),
     schedule=None,
     catchup=False,
-    tags= ["tutorial"],
+    tags=["tutorial"],
 )
 
 t1 = PythonOperator(
-    task_id="generate_message",
-    python_callable=generate_message,
-    dag = dag
+    task_id="generate_message", python_callable=generate_message, dag=dag
 )

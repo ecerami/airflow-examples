@@ -5,23 +5,24 @@ from airflow.decorators import dag, task
 from datetime import datetime
 import logging
 from airflow.providers.google.cloud.operators.gcs import GCSListObjectsOperator
+from airflow.providers.google.cloud.transfers.gcs_to_bigquery import (
+    GCSToBigQueryOperator,
+)
 
 logger = logging.getLogger("airflow.task")
+
 
 # Create the DAG
 @dag(
     dag_id="gcs_list",
-    start_date=datetime(2023,1,1),
+    start_date=datetime(2023, 1, 1),
     schedule=None,
     catchup=False,
-    tags= ["gcp"],
+    tags=["gcp"],
 )
 def bucket_list():
-
     gcp_file_list = GCSListObjectsOperator(
-        task_id='gcs_list_files',
-        bucket='hdash',
-        gcp_conn_id="gcp"
+        task_id="gcs_list_files", bucket="hdash", gcp_conn_id="gcp"
     )
 
     @task()

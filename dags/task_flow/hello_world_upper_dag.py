@@ -6,16 +6,16 @@ Uses the Task Flow API syntax.
 from airflow.decorators import dag, task
 from datetime import datetime
 
+
 # Create the DAG
 @dag(
     dag_id="hello_world_upper_dag",
-    start_date=datetime(2023,1,1),
+    start_date=datetime(2023, 1, 1),
     schedule=None,
     catchup=False,
-    tags= ["tutorial"],
+    tags=["tutorial"],
 )
 def hello_upper():
-
     @task()
     def generate_message():
         """
@@ -23,7 +23,7 @@ def hello_upper():
         """
         msg = "hello, world!"
         print(f"Setting message to:  {msg}")
-        return msg;
+        return msg
 
     @task()
     def upper_case(msg):
@@ -37,6 +37,7 @@ def hello_upper():
 
     # Describe the dependencies via nested function calls
     upper_case(generate_message())
+
 
 # Call the dag function to register the DAG
 hello_upper()
