@@ -17,6 +17,7 @@ logger = logging.getLogger("airflow.task")
     tags=["gcp"],
 )
 def run_big_query():
+    """Run a sample Google BigQuery."""
 
     @task
     def query_iris():

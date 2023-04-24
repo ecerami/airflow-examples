@@ -21,6 +21,7 @@ logger = logging.getLogger("airflow.task")
     tags=["gcp"],
 )
 def bucket_list():
+    """Get a list of objects in a Google Cloud Storage (GCS) Bucket."""
     gcp_file_list = GCSListObjectsOperator(
         task_id="gcs_list_files", bucket="hdash", gcp_conn_id="gcp"
     )

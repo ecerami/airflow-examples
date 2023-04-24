@@ -19,6 +19,7 @@ logger = logging.getLogger("airflow.task")
     tags=["gcp"],
 )
 def transfer_to_bigquery():
+    """Transfer a file from Google Cloud Storage (GCS) to BigQuery."""
     gcp_transfer = GCSToBigQueryOperator(
         task_id="gcs_to_bigquery",
         bucket="hdash",
