@@ -7,7 +7,6 @@ import logging
 from airflow.providers.google.cloud.transfers.gcs_to_bigquery import (
     GCSToBigQueryOperator,
 )
-
 logger = logging.getLogger("airflow.task")
 
 
@@ -29,9 +28,7 @@ def transfer_to_bigquery():
         gcp_conn_id="gcp",
     )
 
-    # Call the task function
     gcp_transfer
-
 
 # Call the dag function to register the DAG
 transfer_to_bigquery()
